@@ -1,10 +1,20 @@
 package farmaulife.model;
 
+import farmaulife.dao.ExceptionDAO;
+import farmaulife.dao.ProdutoDAO;
+
 public class Produto {
 	long idProduto;
 	String nomeProduto;
 	double valorProduto;
 	String tipoProduto;
+
+	public Produto(String nomeProduto, double valorPrdouto, String tipoProduto) {
+		this.nomeProduto = nomeProduto;
+		this.valorProduto = valorPrdouto;
+		this.tipoProduto = tipoProduto;
+
+	}
 
 	public long getIdProduto() {
 		return idProduto;
@@ -44,7 +54,8 @@ public class Produto {
 				+ ", tipoProduto=" + tipoProduto + "]";
 	}
 
-	public void cadastrarProduto(Produto produto) {
+	public void cadastrarProduto(Produto produto) throws ExceptionDAO {
+		new ProdutoDAO().cadastrarProduto(produto);
 
 	}
 

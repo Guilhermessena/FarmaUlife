@@ -1,13 +1,21 @@
 package farmaulife.model;
 
+import farmaulife.dao.AdminDAO;
+import farmaulife.dao.ExceptionDAO;
+
 public class Admin {
 
 	long idAdmin;
 	String nomeAdmin;
-	String sobrenomeAdmin;
 	String emailAdmin;
 	String senhaAdmin;
-	String cpfAdmin;
+
+	public Admin(String nomeAdmin, String emailAdmin, String senhaAdmin) {
+		this.nomeAdmin = nomeAdmin;
+		this.emailAdmin = emailAdmin;
+		this.senhaAdmin = senhaAdmin;
+
+	}
 
 	public long getIdAdmin() {
 		return idAdmin;
@@ -23,14 +31,6 @@ public class Admin {
 
 	public void setNomeAdmin(String nomeAdmin) {
 		this.nomeAdmin = nomeAdmin;
-	}
-
-	public String getSobrenomeAdmin() {
-		return sobrenomeAdmin;
-	}
-
-	public void setSobrenomeAdmin(String sobrenomeAdmin) {
-		this.sobrenomeAdmin = sobrenomeAdmin;
 	}
 
 	public String getEmailAdmin() {
@@ -49,22 +49,14 @@ public class Admin {
 		this.senhaAdmin = senhaAdmin;
 	}
 
-	public String getCpfAdmin() {
-		return cpfAdmin;
-	}
-
-	public void setCpfAdmin(String cpfAdmin) {
-		this.cpfAdmin = cpfAdmin;
-	}
-
 	@Override
 	public String toString() {
-		return "Admin [idAdmin=" + idAdmin + ", nomeAdmin=" + nomeAdmin + ", sobrenomeAdmin=" + sobrenomeAdmin + ", emailAdmin="
-				+ emailAdmin + ", senhaAdmin=" + senhaAdmin + ", cpfAdmin=" + cpfAdmin + "]";
+		return "Admin [idAdmin=" + idAdmin + ", nomeAdmin=" + nomeAdmin + ", emailAdmin=" + emailAdmin + ", senhaAdmin="
+				+ senhaAdmin + "]";
 	}
 
-	public void cadastrarAdmin(Admin admin) {
-
+	public void cadastrarAdmin(Admin admin) throws ExceptionDAO {
+		new AdminDAO().cadastrarAdmin(admin);
 	}
 
 }

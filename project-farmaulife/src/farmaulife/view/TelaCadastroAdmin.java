@@ -27,7 +27,6 @@ public class TelaCadastroAdmin extends JFrame {
 
 	private JPanel ContentPane;
 	private JTextField JTextFieldAdminNome;
-	private JTextField JTextFieldAdminSobrenome;
 	private JTextField JTextFieldAdminEmail;
 	private JPasswordField JPasswordFieldAdmin;
 
@@ -85,50 +84,27 @@ public class TelaCadastroAdmin extends JFrame {
 		JPanelCadastroAdmin.add(JTextFieldAdminNome);
 		JTextFieldAdminNome.setColumns(10);
 
-		JLabel JLabelAdminSobrenome = new JLabel("Sobrenome: ");
-		JLabelAdminSobrenome.setAlignmentX(Component.CENTER_ALIGNMENT);
-		JLabelAdminSobrenome.setFont(new Font("Calibri", Font.PLAIN, 18));
-		JLabelAdminSobrenome.setBounds(10, 56, 94, 23);
-		JPanelCadastroAdmin.add(JLabelAdminSobrenome);
-
-		JTextFieldAdminSobrenome = new JTextField();
-		JTextFieldAdminSobrenome.setFont(new Font("Calibri", Font.PLAIN, 18));
-		JTextFieldAdminSobrenome.setBounds(114, 53, 339, 29);
-		JPanelCadastroAdmin.add(JTextFieldAdminSobrenome);
-		JTextFieldAdminSobrenome.setColumns(10);
-
-		JLabel JLabelAdminCpf = new JLabel("CPF: ");
-		JLabelAdminCpf.setFont(new Font("Calibri", Font.PLAIN, 18));
-		JLabelAdminCpf.setAlignmentX(Component.CENTER_ALIGNMENT);
-		JLabelAdminCpf.setBounds(10, 105, 37, 23);
-		JPanelCadastroAdmin.add(JLabelAdminCpf);
-
-		JFormattedTextField JFormattedTextFieldAdmin = new JFormattedTextField();
-		JFormattedTextFieldAdmin.setFont(new Font("Calibri", Font.PLAIN, 18));
-		JFormattedTextFieldAdmin.setBounds(114, 102, 339, 29);
-		JPanelCadastroAdmin.add(JFormattedTextFieldAdmin);
-
 		JLabel JLabelAdminEmail = new JLabel("Email: ");
 		JLabelAdminEmail.setFont(new Font("Calibri", Font.PLAIN, 18));
 		JLabelAdminEmail.setAlignmentX(0.5f);
-		JLabelAdminEmail.setBounds(10, 155, 49, 23);
+		JLabelAdminEmail.setBounds(10, 58, 49, 23);
 		JPanelCadastroAdmin.add(JLabelAdminEmail);
 
 		JTextFieldAdminEmail = new JTextField();
 		JTextFieldAdminEmail.setFont(new Font("Calibri", Font.PLAIN, 18));
 		JTextFieldAdminEmail.setColumns(10);
-		JTextFieldAdminEmail.setBounds(114, 152, 339, 29);
+		JTextFieldAdminEmail.setBounds(114, 55, 339, 29);
 		JPanelCadastroAdmin.add(JTextFieldAdminEmail);
 
 		JLabel JLabelSenha = new JLabel("Senha: ");
 		JLabelSenha.setFont(new Font("Calibri", Font.PLAIN, 18));
 		JLabelSenha.setAlignmentX(0.5f);
-		JLabelSenha.setBounds(10, 206, 54, 23);
+		JLabelSenha.setBounds(10, 115, 54, 23);
 		JPanelCadastroAdmin.add(JLabelSenha);
 
 		JPasswordFieldAdmin = new JPasswordField();
 		JPasswordFieldAdmin.setFont(new Font("Calibri", Font.PLAIN, 18));
-		JPasswordFieldAdmin.setBounds(114, 203, 339, 29);
+		JPasswordFieldAdmin.setBounds(114, 112, 339, 29);
 		JPanelCadastroAdmin.add(JPasswordFieldAdmin);
 
 		JButton btnNewButton = new JButton("Salvar");
@@ -139,8 +115,7 @@ public class TelaCadastroAdmin extends JFrame {
 				try {
 					AdminController adminController = new AdminController();
 					sucesso = adminController.cadastrarAdmin(JTextFieldAdminNome.getText(),
-							JTextFieldAdminSobrenome.getText(), JTextFieldAdminEmail.getText(),
-							JFormattedTextFieldAdmin.getText(), JPasswordFieldAdmin.getText());
+							JTextFieldAdminEmail.getText(), JPasswordFieldAdmin.getText());
 					if (sucesso == true) {
 						JOptionPane.showMessageDialog(null, "o cadastro foi realizado com sucesso");
 					} else {

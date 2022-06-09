@@ -3,6 +3,10 @@ package farmaulife.model;
 import java.util.ArrayList;
 import java.util.Date;
 
+import farmaulife.dao.ExceptionDAO;
+import farmaulife.dao.ProdutoDAO;
+import farmaulife.dao.VendaDAO;
+
 public class Venda {
 	long idVenda;
 	String nomeCliente;
@@ -15,12 +19,13 @@ public class Venda {
 	public Venda() {
 	}
 
-	public Venda(String nomeCliente, String sobrenomeClinete, String cpfCliente, double valorTotal, Date dataVenda) {
-		this.nomeCliente = nomeCliente;
-		this.sobrenomeCliente = sobrenomeClinete;
-		this.cpfCliente = cpfCliente;
+	public Venda(double valorTotal, Date dataVenda, String nomeCliente, String sobrenomeCliente, String cpfCliente) {
 		this.valorTotal = valorTotal;
 		this.dataVenda = dataVenda;
+		this.nomeCliente = nomeCliente;
+		this.sobrenomeCliente = sobrenomeCliente;
+		this.cpfCliente = cpfCliente;
+
 	}
 
 	public long getIdVenda() {
@@ -79,7 +84,14 @@ public class Venda {
 		this.produtos = produtos;
 	}
 
-	public void cadastrarVenda(Venda venda) {
+	@Override
+	public String toString() {
+		return "Venda [idVenda=" + idVenda + ", nomeCliente=" + nomeCliente + ", sobrenomeCliente=" + sobrenomeCliente
+				+ ", cpfCliente=" + cpfCliente + ", valorTotal=" + valorTotal + ", dataVenda=" + dataVenda
+				+ ", produtos=" + produtos + "]";
+	}
 
+	public void cadastrarVenda(Venda venda) throws ExceptionDAO {
+		new VendaDAO().cadastrarVenda(venda);
 	}
 }

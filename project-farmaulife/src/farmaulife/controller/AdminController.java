@@ -1,20 +1,20 @@
 package farmaulife.controller;
 
+import farmaulife.dao.ExceptionDAO;
 import farmaulife.model.Admin;
 
 public class AdminController {
 
-	public boolean cadastrarAdmin(String nomeAdmin, String sobrenomeAdmin, String emailAdmin, String senhaAdmin,
-			String cpfAdmin) {
+	public boolean cadastrarAdmin(String nomeAdmin, String emailAdmin, String senhaAdmin)
+			throws ExceptionDAO {
 
-		if (nomeAdmin != null && nomeAdmin.length() > 0 && sobrenomeAdmin != null && sobrenomeAdmin.length() > 0
-				&& emailAdmin != null && emailAdmin.length() > 0 && senhaAdmin != null && senhaAdmin.length() > 0
-				&& cpfAdmin != null && cpfAdmin.length() > 0) {
-			
-			Admin admin = new Admin();
+		if (nomeAdmin != null && nomeAdmin.length() > 0 && emailAdmin != null && emailAdmin.length() > 0
+				&& senhaAdmin != null && senhaAdmin.length() > 0) {
+
+			Admin admin = new Admin(nomeAdmin, emailAdmin, senhaAdmin);
 			admin.cadastrarAdmin(admin);
 			return true;
 		}
-			return false;
+		return false;
 	}
 }

@@ -91,36 +91,26 @@ public class TelaCadastroAtendente extends JFrame {
 		JTextFieldAtendenteSobrenome.setBounds(114, 53, 339, 29);
 		JPanelCadastroAtendente.add(JTextFieldAtendenteSobrenome);
 
-		JLabel JLabelAtendenteCpf = new JLabel("CPF: ");
-		JLabelAtendenteCpf.setFont(new Font("Calibri", Font.PLAIN, 18));
-		JLabelAtendenteCpf.setAlignmentX(0.5f);
-		JLabelAtendenteCpf.setBounds(10, 105, 37, 23);
-		JPanelCadastroAtendente.add(JLabelAtendenteCpf);
-
-		JFormattedTextField JFormattedTextFieldAtendente = new JFormattedTextField();
-		JFormattedTextFieldAtendente.setBounds(114, 101, 339, 29);
-		JPanelCadastroAtendente.add(JFormattedTextFieldAtendente);
-
 		JLabel JLabelAtendenteEmail = new JLabel("Email: ");
 		JLabelAtendenteEmail.setFont(new Font("Calibri", Font.PLAIN, 18));
 		JLabelAtendenteEmail.setAlignmentX(0.5f);
-		JLabelAtendenteEmail.setBounds(10, 155, 49, 23);
+		JLabelAtendenteEmail.setBounds(10, 100, 49, 23);
 		JPanelCadastroAtendente.add(JLabelAtendenteEmail);
 
 		JTextFieldAtendenteEmail = new JTextField();
 		JTextFieldAtendenteEmail.setFont(new Font("Calibri", Font.PLAIN, 18));
 		JTextFieldAtendenteEmail.setColumns(10);
-		JTextFieldAtendenteEmail.setBounds(114, 152, 339, 29);
+		JTextFieldAtendenteEmail.setBounds(114, 97, 339, 29);
 		JPanelCadastroAtendente.add(JTextFieldAtendenteEmail);
 
 		JLabel JLabelAtendenteSenha = new JLabel("Senha: ");
 		JLabelAtendenteSenha.setFont(new Font("Calibri", Font.PLAIN, 18));
 		JLabelAtendenteSenha.setAlignmentX(0.5f);
-		JLabelAtendenteSenha.setBounds(10, 206, 54, 23);
+		JLabelAtendenteSenha.setBounds(10, 143, 54, 23);
 		JPanelCadastroAtendente.add(JLabelAtendenteSenha);
 
 		JPasswordFieldAtendente = new JPasswordField();
-		JPasswordFieldAtendente.setBounds(114, 202, 339, 29);
+		JPasswordFieldAtendente.setBounds(114, 139, 339, 29);
 		JPanelCadastroAtendente.add(JPasswordFieldAtendente);
 
 		JButton btnNewButton = new JButton("Salvar");
@@ -132,7 +122,7 @@ public class TelaCadastroAtendente extends JFrame {
 					AtendenteController atendenteController = new AtendenteController();
 					sucesso = atendenteController.cadastrarAtendente(JTextFieldAtendenteNome.getText(),
 							JTextFieldAtendenteSobrenome.getText(), JTextFieldAtendenteEmail.getText(),
-							JFormattedTextFieldAtendente.getText(), JPasswordFieldAtendente.getText());
+							JPasswordFieldAtendente.getText());
 					if (sucesso == true) {
 						JOptionPane.showMessageDialog(null, "o cadastro foi realizado com sucesso");
 					} else {

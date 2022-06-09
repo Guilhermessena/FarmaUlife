@@ -7,7 +7,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import farmaulife.controller.AdminController;
 import farmaulife.controller.VendaController;
 
 import javax.swing.JLabel;
@@ -20,7 +19,6 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 
 import java.awt.event.ActionListener;
-import java.util.Date;
 import java.awt.event.ActionEvent;
 
 public class TelaRegistroVenda extends JFrame {
@@ -86,8 +84,8 @@ public class TelaRegistroVenda extends JFrame {
 
 				try {
 					VendaController vendaController = new VendaController();
-					sucesso = vendaController.cadastrarVenda(textField_1.getText(), textField_2.getText(),
-							JFormattedTextField.getText(), valorTotal, JFormattedTextField.getText());
+					sucesso = vendaController.cadastrarVenda(valorTotal, JFormattedTextField.getText(),
+							textField_1.getText(), textField_2.getText(), JFormattedTextField.getText());
 					if (sucesso == true) {
 						JOptionPane.showMessageDialog(null, "o cadastro foi realizado com sucesso");
 					} else {
